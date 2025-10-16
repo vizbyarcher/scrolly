@@ -1,11 +1,48 @@
-<<<<<<< HEAD
-# Set the default to LF for all files, but allow platform-specific overrides
+# Auto detect text files and perform LF normalization
 * text=auto eol=lf
 
-# For specific file types that might need CRLF
+# Source code
+*.js text eol=lf
+*.jsx text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Geospatial data
+*.geojson text eol=lf linguist-language=JSON
+
+# Images
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg text eol=lf
+
+# Fonts
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.eot binary
+
+# Archives
+*.zip binary
+*.tar binary
+*.gz binary
+
+# Documents
+*.pdf binary
+
+# Lock files
+package-lock.json linguist-generated=true
+yarn.lock linguist-generated=true
+
+# Windows-specific files
 *.bat text eol=crlf
 *.cmd text eol=crlf
-=======
-# Auto detect text files and perform LF normalization
-* text=auto
->>>>>>> 399bb2ea925a05c36ce2e1e50169c8cebf92e1f6
