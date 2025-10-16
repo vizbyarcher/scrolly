@@ -1,0 +1,11 @@
+<<<<<<< HEAD
+# Set the default to LF for all files, but allow platform-specific overrides
+* text=auto eol=lf
+
+# For specific file types that might need CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+=======
+# Auto detect text files and perform LF normalization
+* text=auto
+>>>>>>> 399bb2ea925a05c36ce2e1e50169c8cebf92e1f6
