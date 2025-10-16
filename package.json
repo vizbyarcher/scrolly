@@ -1,0 +1,26 @@
+{
+  "name": "atlas-of-leadership",
+  "version": "1.0.0",
+  "description": "Interactive scrollytelling visualization of global political leadership",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "data-journalism",
+    "visualization",
+    "scrollytelling",
+    "maps"
+  ],
+  "author": "Edit Gyenge",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.4.0"
+  },
+  "dependencies": {
+    "maplibre-gl": "^4.7.1",
+    "d3-ease": "^3.0.1"
+  }
+}

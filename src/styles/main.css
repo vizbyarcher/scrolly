@@ -1,0 +1,288 @@
+/* Atlas of Leadership - Main Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-humanities: #F4A460;
+  --color-natural: #2ECC71;
+  --color-formal: #00CED1;
+  --color-professions: #9B59B6;
+  --color-no-diploma: #95A5A6;
+  --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --transition-smooth: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  font-family: var(--font-primary);
+  overflow-x: hidden;
+  background: #1a1a1a;
+  color: #333;
+}
+
+/* Map Container */
+#map {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+}
+
+/* Narrative Container */
+#narrative-container {
+  position: relative;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.narrative-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  max-width: 600px;
+  margin-left: 4rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: var(--transition-smooth);
+  pointer-events: auto;
+}
+
+.narrative-section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.narrative-section h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.narrative-section .subtitle {
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  color: #f0f0f0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.narrative-section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-indicator {
+  margin-top: 2rem;
+  text-align: center;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Legend Panel */
+.legend-panel {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  transition: var(--transition-smooth);
+}
+
+.legend-toggle {
+  background: rgba(255, 255, 255, 0.98);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.3s;
+}
+
+.legend-toggle:hover {
+  background: #f0f0f0;
+}
+
+.legend-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.legend-panel:not(.collapsed) .legend-content {
+  max-height: 800px;
+  padding: 20px;
+}
+
+.legend-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Detail Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.visible {
+  display: flex;
+}
+
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+}
+
+.modal-content {
+  position: relative;
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-content .close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #999;
+  transition: color 0.2s;
+}
+
+.modal-content .close-btn:hover {
+  color: #333;
+}
+
+/* MapLibre Marker Styles */
+.maplibregl-marker {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.maplibregl-marker:hover {
+  transform: scale(1.15);
+}
+
+.marker-container {
+  width: 60px;
+  height: 60px;
+  position: relative;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .narrative-section {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    max-width: 100%;
+  }
+
+  .narrative-section h1 {
+    font-size: 2rem;
+  }
+
+  .narrative-section .subtitle {
+    font-size: 1rem;
+  }
+
+  .narrative-section p {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .legend-panel {
+    top: 10px;
+    right: 10px;
+    max-width: 90%;
+  }
+
+  .modal-content {
+    padding: 1.5rem;
+  }
+}
+
+/* Accessibility */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Focus styles for keyboard navigation */
+*:focus-visible {
+  outline: 3px solid #00CED1;
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

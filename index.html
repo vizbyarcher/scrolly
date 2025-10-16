@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Atlas of Leadership: Navigating Academic Legacies, Gender and Generations">
+  <meta name="author" content="Edit Gyenge">
+  <title>Atlas of Leadership</title>
+  <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body>
+  <!-- Map Container (Background) -->
+  <div id="map"></div>
+
+  <!-- Narrative Overlay -->
+  <div id="narrative-container">
+    <div class="narrative-section active" id="section-intro">
+      <h1>Atlas of Leadership</h1>
+      <p class="subtitle">Navigating Academic Legacies, Gender and Generations</p>
+      <p>Explore how education, gender, and generation shape global political leadership. Scroll to discover patterns across continents.</p>
+      <div class="scroll-indicator">
+        <img src="/public/assets/scroll.png" alt="Scroll to explore" width="40">
+      </div>
+    </div>
+  </div>
+
+  <!-- Legend Panel -->
+  <div id="legend-panel" class="legend-panel collapsed">
+    <button id="legend-toggle" class="legend-toggle" aria-label="Toggle legend">
+      <span>How to read the map</span>
+    </button>
+    <div class="legend-content">
+      <img src="/public/assets/legend.png" alt="Map legend" class="legend-image">
+    </div>
+  </div>
+
+  <!-- Detail Modal (Hidden by default) -->
+  <div id="detail-modal" class="modal" role="dialog" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <!-- Content will be injected by JavaScript -->
+    </div>
+  </div>
+
+  <!-- Main Application Script -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
