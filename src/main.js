@@ -43,7 +43,9 @@ class AtlasApp {
 
   async loadData() {
     try {
-      this.leaders = await this.mapController.loadGeoJSON('/leaders.geojson');
+      // Use relative path that works both locally and on GitHub Pages
+      const basePath = import.meta.env.BASE_URL || '/';
+      this.leaders = await this.mapController.loadGeoJSON(`${basePath}leaders.geojson`);
       console.log(`Loaded ${this.leaders.features.length} leaders`);
     } catch (error) {
       console.error('Error loading leader data:', error);
@@ -154,7 +156,7 @@ class AtlasApp {
       <button class="close-btn" aria-label="Close">&times;</button>
       <div class="modal-header" style="text-align: center; margin-bottom: 2rem;">
         <img
-          src="/assets/portraits/${portrait}"
+          src="${import.meta.env.BASE_URL || '/'}assets/portraits/${portrait}"
           alt="${name}"
           style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
         />

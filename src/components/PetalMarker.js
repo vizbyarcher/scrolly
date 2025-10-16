@@ -62,7 +62,7 @@ export class PetalMarker {
 
         <!-- Portrait image -->
         <image
-          href="/assets/portraits/${portraitUrl}"
+          href="${import.meta.env.BASE_URL || '/'}assets/portraits/${portraitUrl}"
           width="${size}"
           height="${size}"
           clip-path="url(#clip-${Math.random().toString(36).substr(2, 9)})"
